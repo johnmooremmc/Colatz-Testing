@@ -4,44 +4,34 @@
 int main()
 {
 
+    int target[] = {};
+    int result[] = {};
+    int count[1] = {};
 
+    int i = 1;
+    target[1] = i;
 
-    int num = 1;
-    int target = num;
-    int result;
-    int count = 0;
-    int largestnum;
+    while(i <= 500) {
 
-    while(num <= 10000){
+        while(result[i] != 1) {
 
-        while(result != 1){
-
-
-            if(target % 2 == 0)
-                result = target/2;
+            if(target[i] % 2 == 0)
+                result[i] = target[i]/2;
             else
-                result = target*3 +1;
+                result[i] = target[i]*3 +1;
 
-                //printf("%d\n", result);
+        //printf("%d \n", result[i]);
 
-            target = result;
-            if(largestnum < result)
-                largestnum = result;
-
-            count++;
+        count[i]++;
         }
 
-        if(count > 250)
-            printf("Starting: %d Counted: %d\n", num, count);
+        printf("%d : %d \n", i, count[i]);
 
-        count = 0;
-        result = 0;
+        i++;
+        target[i] = i;
+        count[i]--;
 
-        num++;
-        target = num;
     }
-
-    printf("%d\n", largestnum);
 
     return 0;
 }
